@@ -137,20 +137,50 @@ if __name__ == "__main__":
 class TestCards(unittest.TestCase):
 	def test_cardnumber(self):
 		t = Card(rank=12)
-		self.assertEqual(t.rank,"Queen")
+			self.assertEqual(t.rank,"Queen")
 
-		def test_cardnumber1(self):
-			t = Card(rank=1)
-			self.assertEqaul(t.rank, "Ace")
+	def test_cardnumber2(self):
+		t = Card(rank=1)
+			self.assertEqual(t.rank, "Ace")
 
-		def test_cardnumber2(self):
-			t = Card(rank=3)
+	def test_cardnumber3(self):
+		t = Card(rank=3)
 			self.assertEqual(t.rank, 3)
 
-		def test_cardtype(self):
-			t = Card(suit=1)
+	def test_cardtype(self):
+		t = Card(suit=1)
 			self.assertEqual(t.suit, "Clubs")
-			
+
+	def test_cardtype2(self):
+		t = Card(suit=2)
+			self.assertEqual(t.suit, "Hearts")
+
+	def testcardproblem(self):
+		t = Card()
+			self.assertEqual(t.suit_names, ["Diamonds", "Clubs", "Hearts", "Spades"])
+
+	def testcardproblem2(self):
+		t = Card(suit=2, rank=7)
+			self.assertEqual(str(t), "7 of Hearts")
+	
+	def testdeck(self):
+		d = Deck()
+			self.assertEqual(len(d.cards), 52)
+	
+	def testpopcard(self):
+		d = Deck()
+			t = Card()
+				self.assertEqual(type(d.pop_card()), type(t))
+
+	def testplaywar(self):
+		g = play_war_game()
+			self.assertEqual(len(g), 3)
+			self.assertEqual(type(g[0]), str)
+
+	
+
+
+
 
 
 
